@@ -1,0 +1,12 @@
+
+         Else
+            'se o programa entrar aqui é sinal de que nós estamos
+            'querendo atualizar um registro que já existe. Portanto
+            'neste caso iremos utilizar o comando :UPDATE
+            sql = "update instrutor set Nome = '" & txtnome.Text & "',"
+            sql = sql & "apelido = '" & txtapelido.Text & "',"
+            sql = sql & "fone = '" & txtfone.Text & "',"
+            sql = sql & "celular = '" & txtcelular.Text & "'"
+            sql = sql & "where codigoin = " & txtcodigo.Text
+        End If
+        
