@@ -1,12 +1,10 @@
- 
-git init 
 
 formulario_instrutor
 
  Private Sub frmInstrutor_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        
         preencher_grid()
     End Sub
+    
     Sub preencher_grid()
         gridInstrutor.Rows.Clear()
         'limpar a variável sql 
@@ -31,24 +29,21 @@ formulario_instrutor
             conexao.Close()
         End Try
     End Sub
-
-
+    
     Private Sub btnFechar_Click(sender As System.Object, e As System.EventArgs) Handles btnFechar.Click
         Me.Close()
     End Sub
-
+    
     Private Sub btnLimpar_Click(sender As System.Object, e As System.EventArgs) Handles btnLimpar.Click
         limpar() 
     End Sub
-    
-    Sub limpar()
+        Sub limpar()
         txtCodigo.Text = ""
         TxtNome.Text = ""
         txtApelido.Text = ""
         txtCelular.Text = ""
         txtTelefone.Text = ""
     End Sub
-
 
     Private Sub btnNovo_Click(sender As System.Object, e As System.EventArgs) Handles btnNovo.Click
         salvar = "sim" 
@@ -89,8 +84,7 @@ formulario_instrutor
             Exit Sub
         End If
         If salvar = "sim" Then
-  ---------------------------------------------->('vamos construir o comando sql para inserir o registro limpando a variável sql)
-            sql = ""
+             sql = ""
             sql = "insert into instrutor (codigo, nome, apelido, "
             sql = sql & "fone, celular) values (" & txtCodigo.Text & ",'"
             sql = sql & TxtNome.Text & "','"
@@ -148,12 +142,10 @@ formulario_instrutor
             MessageBoxIcon.Warning)
             Exit Sub
         End If
-        
-        If MessageBox.Show("Tem certeza que deseja EXCLUIR? ", "CUIDADO!",
+         If MessageBox.Show("Tem certeza que deseja EXCLUIR? ", "CUIDADO!",
                            MessageBoxButtons.YesNo,
                            MessageBoxIcon.Question,
                            MessageBoxDefaultButton.Button2) = Windows.Forms.DialogResult.Yes Then
-
             sql = ""
             sql = "DELETE FROM INSTRUTOR WHERE CODIGO=" & txtCodigo.Text
             Try
